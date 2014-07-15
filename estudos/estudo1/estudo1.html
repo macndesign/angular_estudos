@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html ng-app="app">
+<head>
+    <title>Angular estudos</title>
+</head>
+<body ng-controller="DataQuality">
+
+<fieldset>
+    <legend>Globals</legend>
+    <label>List:
+        <select ng-model="jobList" id="job-list" ng-options="job.name for job in jobs"  ng-init="jobList=jobs[0]"></select>
+    </label>
+    <label>Name: <input ng-model="jobName" type="text" ng-init="jobName='Mario'"/></label>
+    <hr/>
+    <div>Job List Name: {{jobList.name}}, Job List Id: {{jobList.id}}, Job Name: {{jobName}}</div>
+</fieldset>
+
+<table>
+    <tr ng-repeat="item in items">
+        <td><select ng-options="column for column in item.columns" ng-model="itemColumn" ng-init="itemColumn=item.columns[0]"></select></td>
+        <td><select ng-options="validation for validation in item.validations" ng-model="itemValidation" ng-init="itemValidation=item.validations[0]"></select></td>
+        <td>
+            <label>Filled <input type="radio" ng-model="filled" value="filled"/></label>
+            <label>Unfilled <input type="radio" ng-model="filled" value="unfilled"/></label>
+        </td>
+        <td>
+            <label>Validate <input type="checkbox" ng-model="validate"/></label>
+        </td>
+        <td><button ng-click="addItem();">Add</button></td>
+    </tr>
+</table>
+
+<script src="../dist/js/angular.min.js"></script>
+<script src="estudo1.js"></script>
+</body>
+</html>

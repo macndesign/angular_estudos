@@ -1,0 +1,9 @@
+<td><input  ng-model="row.artist"/></td>
+<td><input ng-model="row.title"/></td>
+<td><select  ng-model="row.isrctype" ng-change="setState(state)" ng-options="s.type for s in recordingTypes"></select></td>
+<td><input ng-model="row.duration"/></td>
+<td><input ng-model="row.year"/></td>
+<td>
+  <input type="button" value="Add ISRC" ng-click="AddIsrc()" />
+  <input type="button" value="Delete" ng-click="RemoveIsrc(row)" />
+</td>

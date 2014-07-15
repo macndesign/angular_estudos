@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html ng-app="MyApp">
+<head>
+    <title>Angular estudos</title>
+</head>
+<body>
+
+<div id="MyApp" ng-controller="mainController">
+
+    <div id="AddItem">
+        <h3>Add Item</h3>
+
+        <input value="1" type="number" placeholder="1" ng-model="itemAmount">
+        <input value="" type="text" placeholder="Name of Item" ng-model="itemName">
+        <br/>
+        <button ng-click="addItem()">Add to list</button>
+    </div>
+    <!-- begin: LIST OF CHECKED ITEMS -->
+    <div id="CheckedList">
+        <h3>Checked Items: {{getTotalCheckedItems()}}</h3>
+
+        <h4>Checked:</h4>
+
+        <table>
+            <tr ng-repeat="item in checked" class="item-checked">
+                <td><b>amount:</b> {{item.amount}} -</td>
+                <td><b>name:</b> {{item.name}} -</td>
+                <td><i>this item is checked!</i>
+
+                </td>
+            </tr>
+        </table>
+    </div>
+    <!-- end: LIST OF CHECKED ITEMS -->
+    <!-- begin: LIST OF UNCHECKED ITEMS -->
+    <div id="UncheckedList">
+        <h3>Unchecked Items: {{getTotalItems()}}</h3>
+
+        <h4>Unchecked:</h4>
+
+        <table>
+            <tr ng-repeat="item in items" class="item-unchecked">
+                <td><b>amount:</b> {{item.amount}} -</td>
+                <td><b>name:</b> {{item.name}} -</td>
+                <td>
+                    <button ng-click="toggleChecked($index)">check item</button>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <!-- end: LIST OF ITEMS -->
+</div>
+
+<script src="../dist/js/angular.min.js"></script>
+<script src="estudo3.js"></script>
+</body>
+</html>

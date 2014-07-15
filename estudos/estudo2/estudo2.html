@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html ng-app="plunker">
+<head>
+    <title>Angular estudos</title>
+</head>
+<body ng-controller="isrcorders">
+<table id="isrctable" class="table">
+    <thead>
+    <tr>
+        <th>Artist Name</th>
+        <th>Track Title</th>
+        <th>Version</th>
+        <th>Track Duration</th>
+        <th>Recording Year(20xx)</th>
+        <th></th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr ng-repeat="row in items" isrcrow></tr>
+    </tbody>
+</table>
+<h4>Items data</h4>
+<pre>{{items|json}}</pre>
+<script src="../dist/js/angular.min.js"></script>
+<script src="estudo2.js"></script>
+</body>
+</html>
