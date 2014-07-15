@@ -11,7 +11,7 @@
 </ul>
 
 <!--  Review Form -->
-<form name="reviewForm" ng-controller="ReviewController as reviewCtrl" ng-submit="reviewCtrl.addReview(product)">
+<form name="reviewForm" ng-controller="ReviewController as reviewCtrl" ng-submit="reviewForm.$valid && reviewCtrl.addReview(product)" novalidate>
 
     <!--  Live Preview -->
     <blockquote>
@@ -24,7 +24,7 @@
     <h4>Submit a Review</h4>
     <fieldset class="form-group">
         <select ng-model="reviewCtrl.review.stars" class="form-control" ng-options="stars for stars in [5,4,3,2,1]"
-                title="Stars">
+                title="Stars" required>
             <option value>Rate the Product</option>
         </select>
     </fieldset>
@@ -34,7 +34,7 @@
     </fieldset>
     <fieldset class="form-group">
         <input ng-model="reviewCtrl.review.author" type="email" class="form-control" placeholder="jimmyDean@example.org"
-               title="Email"/>
+               title="Email" required/>
     </fieldset>
     <fieldset class="form-group">
         <input type="submit" class="btn btn-primary pull-right" value="Submit Review"/>
